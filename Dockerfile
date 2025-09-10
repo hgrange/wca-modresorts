@@ -1,4 +1,4 @@
-FROM registry.connect.redhat.com/ibm/ibm-semeru-runtime-certified-jdk-21-ubi@sha256:1b305721c956109bcbb8c171f95f8ef1abb5e38b3cdb0a66778c93313f3ee7e5 AS builder
+FROM registry.redhat.io/ubi9/openjdk-21-runtime:1.22 AS builder
 WORKDIR /build
 ARG APP
 
