@@ -2,22 +2,19 @@ FROM icr.io/appcafe/open-liberty:kernel-slim-java21-openj9-ubi-minimal AS builde
 WORKDIR /build
 ARG APP
 
-COPY --chown=1000:0 . /build/$APP
+COPY --chown=1001:0 . /build/$APP
 RUN whoami && id
 #RUN echo $APP && cd /build/$APP && tar -xf m2.tar && mvn -o clean package -Dmaven.repo.local=/build/$APP/.m2/repository
-USER 0
-#USER 0
-#RUN dnf install -y procps-ng && dnf clean all
-RUN microdnf install -y  procps-ng procps curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
-USER 1000
-RUN echo $APP && cd /build/$APP && mvn clean package 
+
+USER 1001
+RUN echo $APP && cd /build/$APP && mvn package 
 
 FROM icr.io/appcafe/websphere-liberty:25.0.0.2-kernel-java21-openj9-ubi-minimal
 ARG APP
 ARG TLS=true
-USER 0
+#USER 0
 #RUN dnf install -y procps-ng && dnf clean all
-RUN dnf update -y && dnf install -y curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
+#RUN dnf update -y && dnf install -y curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
 USER 1001
 
 COPY --from=builder --chown=1001:0  /build/$APP/target/*.*ar /config/apps/
