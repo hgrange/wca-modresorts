@@ -17,7 +17,7 @@ ARG APP
 ARG TLS=true
 USER 0
 #RUN dnf install -y procps-ng && dnf clean all
-#RUN dnf update -y && dnf install -y curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
+RUN dnf update -y && dnf install -y curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
 USER 1001
 
 COPY --from=builder --chown=1001:0  /build/$APP/target/*.*ar /config/apps/
