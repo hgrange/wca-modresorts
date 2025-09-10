@@ -11,6 +11,7 @@ RUN echo $APP && cd /build/$APP && mvn package
 
 FROM icr.io/appcafe/websphere-liberty:25.0.0.2-kernel-java21-openj9-ubi-minimal
 ARG APP
+ARG VERBOSE=true
 ARG TLS=true
 #USER 0
 #RUN dnf install -y procps-ng && dnf clean all
