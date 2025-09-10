@@ -8,7 +8,7 @@ RUN whoami && id
 USER 0
 #USER 0
 #RUN dnf install -y procps-ng && dnf clean all
-RUN dnf install -y  procps-ng procps curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
+RUN microdnf install -y  procps-ng procps curl tar gzip jq  procps util-linux vim-minimal iputils net-tools
 USER 1000
 RUN echo $APP && cd /build/$APP && mvn clean package 
 
