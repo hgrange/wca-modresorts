@@ -11,7 +11,6 @@ RUN echo $APP && cd /build/$APP && mvn package
 
 FROM icr.io/appcafe/websphere-liberty:25.0.0.2-kernel-java21-openj9-ubi-minimal
 ARG APP
-ARG VERBOSE=true
 ARG TLS=true
 #USER 0
 #RUN dnf install -y procps-ng && dnf clean all
@@ -24,7 +23,7 @@ COPY --from=builder --chown=1001:0  /build/$APP/src/main/liberty/config/ /config
 
 # This script will add the requested XML snippets to enable Liberty features and grow image to be fit-for-purpose using featureUtility.
 # Only available in 'kernel-slim'. The 'full' tag already includes all features for convenience.
-ENV VERBOSE=false
+ENV VERBOSE=true
 
 RUN features.sh
 # Add interim fixes (optional)
