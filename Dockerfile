@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/openjdk-21-runtime:1.22 AS builder
+FROM icr.io/appcafe/open-liberty:kernel-slim-java21-openj9-ubi-minimal AS builder
 WORKDIR /build
 ARG APP
 
