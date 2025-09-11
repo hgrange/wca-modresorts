@@ -45,6 +45,8 @@ spec:
       name: tmpfs-5
     - mountPath: /tmp
       name: tmpfs-6
+    - mountPath: /opt/ibm/wlp/output/defaultServer
+      name: tmpfs-7
   volumes:
     - name: tmpfs-1
       emptyDir: {}
@@ -58,4 +60,7 @@ spec:
       emptyDir: {}
     - name: tmpfs-6
       emptyDir: {}
+    - name: tmpfs-7
+      emptyDir: {}  
+      
 
