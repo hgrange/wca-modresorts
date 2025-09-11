@@ -4,4 +4,4 @@ while [ $(oc get WebSphereLibertyApplication modresorts -o jsonpath='{.status.co
   sleep 10
   echo -n .
   i=$(expr $i + 1)
-dobe
+done
