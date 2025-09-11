@@ -25,7 +25,7 @@ COPY --from=builder --chown=1001:0  /build/$APP/src/main/liberty/config/ /config
 # Only available in 'kernel-slim'. The 'full' tag already includes all features for convenience.
 ENV VERBOSE=true
 
-RUN -xv features.sh
+RUN bash -xv features.sh
 # Add interim fixes (optional)
 # COPY --chown=1001:0  interim-fixes /opt/ibm/wlp/fixes/
 
