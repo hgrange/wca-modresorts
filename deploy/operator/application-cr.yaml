@@ -35,8 +35,6 @@ spec:
   volumeMounts:
     - mountPath: /logs
       name: tmpfs-3
-    - mountPath: /opt/ibm/wlp/usr/servers/defaultServer/apps/expanded
-      name: tmpfs-4
     - mountPath: /out
       name: tmpfs-5
     - mountPath: /tmp
