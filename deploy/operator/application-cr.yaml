@@ -19,7 +19,7 @@ spec:
         whenUnsatisfiable: ScheduleAnyway
   securityContext:
     runAsNonRoot: true
-    readOnlyRootFilesystem: false
+    readOnlyRootFilesystem: true
   serviceAccount:
     mountToken: true
   autoscaling:
