@@ -43,6 +43,8 @@ spec:
       name: tmpfs-4
     - mountPath: /out
       name: tmpfs-5
+    - mountPath: /tmp
+      name: tmpfs-6
   volumes:
     - name: tmpfs-1
       emptyDir: {}
@@ -53,5 +55,7 @@ spec:
     - name: tmpfs-4
       emptyDir: {}
     - name: tmpfs-5
+      emptyDir: {}
+    - name: tmpfs-6
       emptyDir: {}
 
