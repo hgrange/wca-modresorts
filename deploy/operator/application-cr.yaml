@@ -33,6 +33,8 @@ spec:
   pullPolicy: Always
   manageLTPA: false
   volumeMounts:
+    - mountPath:  /opt/ibm/wlp/usr/servers/defaultServer/configDropins/defaults
+      name: tmpfs-2 
     - mountPath: /logs
       name: tmpfs-3
     - mountPath: /out
