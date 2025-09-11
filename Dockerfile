@@ -24,11 +24,10 @@ COPY --from=builder --chown=1001:0  /build/$APP/src/main/liberty/config/ /config
 # This script will add the requested XML snippets to enable Liberty features and grow image to be fit-for-purpose using featureUtility.
 # Only available in 'kernel-slim'. The 'full' tag already includes all features for convenience.
 ENV VERBOSE=true
-
+RUN /opt/ibm/wlp/bin/installUtility install /config/server.xml
 RUN bash -xv features.sh
 # Add interim fixes (optional)
 # COPY --chown=1001:0  interim-fixes /opt/ibm/wlp/fixes/
 
 # This script will add the requested server configurations, apply any interim fixes and populate caches to optimize runtime
-RUN /opt/ibm/wlp/bin/installUtility install /config/server.xml
 RUN bash -xv configure.sh 
